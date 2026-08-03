@@ -13,8 +13,8 @@
       @toggle-fullscreen="toggleFullscreen"
     />
 
-    <div class="app-body">
-      <AppSidebar />
+    <div class="app-body" :class="{ 'no-sidebar': $route.meta.hideSidebar }">
+      <AppSidebar v-if="!$route.meta.hideSidebar" />
 
       <main class="lab-panel">
         <RouterView v-slot="{ Component, route }">
@@ -29,7 +29,7 @@
 
 <script setup>
 import { onMounted, onUnmounted, provide, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import AppHeader from './components/layout/AppHeader.vue'
 import AppSidebar from './components/layout/AppSidebar.vue'
 import ToastContainer from './components/ui/ToastContainer.vue'
@@ -39,6 +39,7 @@ import { useToast } from './composables/useToast.js'
 const audio = useAudio()
 const toast = useToast()
 const router = useRouter()
+const route = useRoute()
 
 // Provide toast globally so all children can inject it
 provide('toast', toast)
@@ -72,6 +73,8 @@ function toggleFullscreen() {
 const labRoutes = ['algoritma', 'datastruktur', 'jaringan', 'biner']
 function onKeydown(e) {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return
+  if (route.meta.hideSidebar) return // Disable shortcuts in auth/master
+  
   const key = e.key
   if (['1','2','3','4'].includes(key)) {
     router.push('/' + labRoutes[parseInt(key) - 1])
@@ -114,5 +117,10 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
   flex: 1; display: grid; grid-template-columns: 252px 1fr;
   overflow: hidden;
 }
-.lab-panel { overflow: hidden; display: flex; flex-direction: column; }
+.app-body.no-sidebar {
+  display: block;
+  overflow-y: auto;
+}
+.lab-panel { overflow: hidden; display: flex; flex-direction: column; height: 100%; }
+.app-body.no-sidebar .lab-panel { height: auto; min-height: 100%; }
 </style>
