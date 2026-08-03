@@ -1,2 +1,4 @@
-# informatika-materi
-# Materi
+# Materi Pembelajaran Informatika SMA
+
+Materi dari pembelajaran
+

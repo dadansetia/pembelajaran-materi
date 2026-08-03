@@ -1,0 +1,35 @@
+/*
+  Security and Performance Headers for Cloudflare Pages
+  Lab Maya Informatika SMA
+*/
+
+/*
+  Apply to all routes
+*/
+https://:project.pages.dev/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/*
+  Apply to all routes (wildcard)
+*/
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-XSS-Protection: 1; mode=block
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';
+  Cache-Control: public, max-age=3600
+
+/assets/*
+  Cache-Control: public, max-age=86400
+
+/assets/css/*
+  Cache-Control: public, max-age=86400
+  Content-Type: text/css
+
+/assets/js/*
+  Cache-Control: public, max-age=86400
+  Content-Type: application/javascript

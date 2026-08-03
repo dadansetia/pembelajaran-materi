@@ -1,0 +1,10 @@
+/*
+  Cloudflare Pages Redirects
+  Lab Maya Informatika SMA
+*/
+
+# Redirect /lab to root
+/lab / 301
+
+# Handle trailing slashes
+/index.html / 301
