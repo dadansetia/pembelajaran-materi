@@ -26,12 +26,12 @@ export async function onRequestPut(context) {
     const { username, password, role } = body
     
     // Cek apakah user exist
-    const existing = await env.DB.prepare("SELECT id_user as id FROM data_users WHERE id_user = ?").bind(userId).first()
+    const existing = await env.DBMateri.prepare("SELECT id_user as id FROM data_users WHERE id_user = ?").bind(userId).first()
     if (!existing) return new Response(JSON.stringify({ error: 'User tidak ditemukan' }), { status: 404 })
 
     // Jika username diubah, cek duplikasi
     if (username) {
-      const checkName = await env.DB.prepare("SELECT id_user as id FROM data_users WHERE username = ? AND id_user != ?").bind(username, userId).first()
+      const checkName = await env.DBMateri.prepare("SELECT id_user as id FROM data_users WHERE username = ? AND id_user != ?").bind(username, userId).first()
       if (checkName) return new Response(JSON.stringify({ error: 'Username sudah digunakan' }), { status: 400 })
     }
 
@@ -52,7 +52,7 @@ export async function onRequestPut(context) {
     query += updates.join(", ") + " WHERE id_user = ?"
     bindings.push(userId)
 
-    await env.DB.prepare(query).bind(...bindings).run()
+    await env.DBMateri.prepare(query).bind(...bindings).run()
     
     return new Response(JSON.stringify({ success: true, message: 'User diupdate' }), {
       headers: { 'Content-Type': 'application/json' }
@@ -77,7 +77,7 @@ export async function onRequestDelete(context) {
   }
 
   try {
-    await env.DB.prepare("DELETE FROM data_users WHERE id_user = ?").bind(userId).run()
+    await env.DBMateri.prepare("DELETE FROM data_users WHERE id_user = ?").bind(userId).run()
     
     return new Response(JSON.stringify({ success: true, message: 'User dihapus' }), {
       headers: { 'Content-Type': 'application/json' }

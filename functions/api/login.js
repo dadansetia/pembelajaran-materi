@@ -15,7 +15,7 @@ export async function onRequestPost(context) {
     }
     
     // Query ke D1 Database berdasarkan username
-    const { results } = await env.DB.prepare(
+    const { results } = await env.DBMateri.prepare(
       "SELECT id_user as id, username, password as password_hash, role_user as role FROM data_users WHERE username = ?"
     ).bind(username).all()
     
@@ -55,7 +55,8 @@ export async function onRequestPost(context) {
     })
     
   } catch (err) {
-    return new Response(JSON.stringify({ error: "Server error" }), { 
+    console.error("Login Error:", err.stack || err)
+    return new Response(JSON.stringify({ error: "Server error", detail: err.message }), { 
       status: 500, headers: { 'Content-Type': 'application/json' }
     })
   }

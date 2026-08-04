@@ -21,7 +21,7 @@ export async function onRequestGet(context) {
   if (!auth) return new Response('Unauthorized', { status: 401 })
 
   try {
-    const { results } = await env.DB.prepare(
+    const { results } = await env.DBMateri.prepare(
       "SELECT id_user as id, username, role_user as role, created_at FROM data_users ORDER BY created_at DESC"
     ).all()
     
@@ -52,7 +52,7 @@ export async function onRequestPost(context) {
     }
     
     // Cek apakah username sudah ada
-    const existing = await env.DB.prepare("SELECT id_user as id FROM data_users WHERE username = ?").bind(username).first()
+    const existing = await env.DBMateri.prepare("SELECT id_user as id FROM data_users WHERE username = ?").bind(username).first()
     if (existing) {
       return new Response(JSON.stringify({ error: 'Username sudah digunakan' }), { status: 400 })
     }
@@ -61,7 +61,7 @@ export async function onRequestPost(context) {
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password, salt)
     
-    const { success } = await env.DB.prepare(
+    const { success } = await env.DBMateri.prepare(
       "INSERT INTO data_users (username, password, role_user, nama_pengguna) VALUES (?, ?, ?, ?)"
     ).bind(username, hash, role, username).run()
     
