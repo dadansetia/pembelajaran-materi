@@ -48,23 +48,31 @@ router.beforeEach(async (to, from, next) => {
   if (to.meta.requiresAuth) {
     try {
       const res = await fetch('/api/session')
-      if (res.ok) {
-        next() // Ada sesi, lanjut ke /master
-      } else {
-        next('/masuk') // Tidak ada sesi, lempar ke login
+      const isJson = res.headers.get('content-type')?.includes('application/json')
+      
+      if (res.ok && isJson) {
+        const data = await res.json()
+        if (data.success) {
+          return next() // Ada sesi, lanjut ke /master
+        }
       }
+      next('/') // Tidak ada sesi, lempar ke beranda (sembunyikan login)
     } catch (err) {
-      next('/masuk') // Error network dll, lempar ke login
+      next('/') // Error network dll, lempar ke beranda
     }
   } else if (to.path === '/masuk') {
     // Jika ke halaman login, cek apakah sudah login
     try {
       const res = await fetch('/api/session')
-      if (res.ok) {
-        next('/master') // Sudah login, arahkan ke master
-      } else {
-        next() // Belum login, boleh ke /masuk
+      const isJson = res.headers.get('content-type')?.includes('application/json')
+      
+      if (res.ok && isJson) {
+        const data = await res.json()
+        if (data.success) {
+          return next('/master') // Sudah login, arahkan ke master
+        }
       }
+      next() // Belum login, boleh ke /masuk
     } catch {
       next()
     }

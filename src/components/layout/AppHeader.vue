@@ -23,14 +23,6 @@
     </nav>
 
     <div class="header-controls">
-      <RouterLink 
-        to="/masuk" 
-        class="icon-btn" 
-        title="Panel Master"
-        @click="audio.click()"
-      >
-        🔐
-      </RouterLink>
       <button
         class="icon-btn"
         :class="{ active: !audioEnabled }"

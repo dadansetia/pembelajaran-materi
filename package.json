@@ -1,15 +1,16 @@
 {
-  "name": "lab-maya-sman1lakbok",
+  "name": "pembelajaran-materi",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Lab Maya Interaktif Informatika SMA Fase E & F",
+  "description": "Pembelajaran Materi dengan lab maya Informatika SMA Fase E & F",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "vue": "^3.5.0",
     "vue-router": "^4.4.0"
   },

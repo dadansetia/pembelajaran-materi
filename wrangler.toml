@@ -1,5 +1,5 @@
 name = "lab-maya-informatika"
-compatibility_date = "2024-03-20"
+compatibility_date = "2026-06-16"
 pages_build_output_dir = "dist"
 
 # Variabel Lingkungan
@@ -9,7 +9,7 @@ JWT_SECRET = "super-secret-key-untuk-lab-maya-2026"
 
 # Konfigurasi D1 Database Binding
 [[d1_databases]]
-binding = "DB"
-database_name = "lab-maya-db"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Ganti dengan ID database D1 Anda dari dashboard
-preview_database_id = "DB" # Untuk testing lokal (wrangler)
+binding = "DBMateri"
+database_name = "materi"
+database_id = "603a510b-ad31-4ecd-9ace-85413529dce1" # Ganti dengan ID database D1 Anda dari dashboard
+preview_database_id = "DB_Materi" # Untuk testing lokal (wrangler)

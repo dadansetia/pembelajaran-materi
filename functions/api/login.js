@@ -1,4 +1,5 @@
-import { signJWT, hashPassword } from './jwt.js'
+import { signJWT } from './jwt.js'
+import bcrypt from 'bcryptjs'
 
 export async function onRequestPost(context) {
   const { request, env } = context
@@ -13,13 +14,10 @@ export async function onRequestPost(context) {
       })
     }
     
-    // Hash password input
-    const hashedInput = await hashPassword(password)
-    
-    // Query ke D1 Database
+    // Query ke D1 Database berdasarkan username
     const { results } = await env.DB.prepare(
-      "SELECT id, username, role FROM users WHERE username = ? AND password_hash = ?"
-    ).bind(username, hashedInput).all()
+      "SELECT id, username, password_hash, role FROM users WHERE username = ?"
+    ).bind(username).all()
     
     if (!results || results.length === 0) {
       return new Response(JSON.stringify({ error: "Kredensial tidak valid" }), { 
@@ -28,6 +26,15 @@ export async function onRequestPost(context) {
     }
     
     const user = results[0]
+    
+    // Verifikasi password dengan bcrypt
+    const isValid = await bcrypt.compare(password, user.password_hash)
+    
+    if (!isValid) {
+      return new Response(JSON.stringify({ error: "Kredensial tidak valid" }), { 
+        status: 401, headers: { 'Content-Type': 'application/json' }
+      })
+    }
     
     // Generate JWT Token (Expired in 24 hours)
     const exp = Math.floor(Date.now() / 1000) + (24 * 60 * 60)
