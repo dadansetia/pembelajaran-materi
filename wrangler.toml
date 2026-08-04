@@ -6,6 +6,8 @@ pages_build_output_dir = "dist"
 [vars]
 # Ganti dengan secret acak yang kuat saat deploy ke produksi
 JWT_SECRET = "super-secret-key-untuk-lab-maya-2026"
+#API_KEY="62166844-f4da-4783-99ea-9036d40f2690" # API Key langsung di pages
+#API_SECRET=1a43e44b-2d34-4368-a242-ee2e1e33d5f3" # API Secret langsung di pages
 
 # Konfigurasi D1 Database Binding
 [[d1_databases]]

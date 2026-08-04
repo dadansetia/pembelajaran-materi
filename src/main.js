@@ -4,7 +4,11 @@ import App from './App.vue'
 import './styles/main.css'
 
 const routes = [
-  { path: '/', redirect: '/algoritma' },
+  { 
+    path: '/', 
+    component: () => import('./components/home/HomeView.vue'),
+    meta: { hideSidebar: true } 
+  },
   {
     path: '/algoritma',
     component: () => import('./components/labs/algoritma/AlgoritmaLab.vue'),

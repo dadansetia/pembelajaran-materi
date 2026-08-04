@@ -73,7 +73,8 @@ function toggleFullscreen() {
 const labRoutes = ['algoritma', 'datastruktur', 'jaringan', 'biner']
 function onKeydown(e) {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return
-  if (route.meta.hideSidebar) return // Disable shortcuts in auth/master
+  // Disable shortcuts only in auth/master, allow on homepage (/)
+  if (route.path === '/masuk' || route.path === '/master') return 
   
   const key = e.key
   if (['1','2','3','4'].includes(key)) {
