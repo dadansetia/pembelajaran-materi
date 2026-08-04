@@ -22,7 +22,7 @@ export async function onRequestGet(context) {
 
   try {
     const { results } = await env.DB.prepare(
-      "SELECT id, username, role, created_at FROM users ORDER BY created_at DESC"
+      "SELECT id_user as id, username, role_user as role, created_at FROM data_users ORDER BY created_at DESC"
     ).all()
     
     return new Response(JSON.stringify({ success: true, data: results }), {
@@ -52,7 +52,7 @@ export async function onRequestPost(context) {
     }
     
     // Cek apakah username sudah ada
-    const existing = await env.DB.prepare("SELECT id FROM users WHERE username = ?").bind(username).first()
+    const existing = await env.DB.prepare("SELECT id_user as id FROM data_users WHERE username = ?").bind(username).first()
     if (existing) {
       return new Response(JSON.stringify({ error: 'Username sudah digunakan' }), { status: 400 })
     }
@@ -62,8 +62,8 @@ export async function onRequestPost(context) {
     const hash = await bcrypt.hash(password, salt)
     
     const { success } = await env.DB.prepare(
-      "INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)"
-    ).bind(username, hash, role).run()
+      "INSERT INTO data_users (username, password, role_user, nama_pengguna) VALUES (?, ?, ?, ?)"
+    ).bind(username, hash, role, username).run()
     
     if (success) {
       return new Response(JSON.stringify({ success: true, message: 'User berhasil dibuat' }), {

@@ -16,7 +16,7 @@ export async function onRequestPost(context) {
     
     // Query ke D1 Database berdasarkan username
     const { results } = await env.DB.prepare(
-      "SELECT id, username, password_hash, role FROM users WHERE username = ?"
+      "SELECT id_user as id, username, password as password_hash, role_user as role FROM data_users WHERE username = ?"
     ).bind(username).all()
     
     if (!results || results.length === 0) {

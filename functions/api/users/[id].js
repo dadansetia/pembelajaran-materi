@@ -26,30 +26,30 @@ export async function onRequestPut(context) {
     const { username, password, role } = body
     
     // Cek apakah user exist
-    const existing = await env.DB.prepare("SELECT id FROM users WHERE id = ?").bind(userId).first()
+    const existing = await env.DB.prepare("SELECT id_user as id FROM data_users WHERE id_user = ?").bind(userId).first()
     if (!existing) return new Response(JSON.stringify({ error: 'User tidak ditemukan' }), { status: 404 })
 
     // Jika username diubah, cek duplikasi
     if (username) {
-      const checkName = await env.DB.prepare("SELECT id FROM users WHERE username = ? AND id != ?").bind(username, userId).first()
+      const checkName = await env.DB.prepare("SELECT id_user as id FROM data_users WHERE username = ? AND id_user != ?").bind(username, userId).first()
       if (checkName) return new Response(JSON.stringify({ error: 'Username sudah digunakan' }), { status: 400 })
     }
 
-    let query = "UPDATE users SET "
+    let query = "UPDATE data_users SET "
     let bindings = []
     let updates = []
 
     if (username) { updates.push("username = ?"); bindings.push(username) }
-    if (role) { updates.push("role = ?"); bindings.push(role) }
+    if (role) { updates.push("role_user = ?"); bindings.push(role) }
     if (password) { 
       const salt = await bcrypt.genSalt(10)
       const hash = await bcrypt.hash(password, salt)
-      updates.push("password_hash = ?"); bindings.push(hash) 
+      updates.push("password = ?"); bindings.push(hash) 
     }
 
     if (updates.length === 0) return new Response(JSON.stringify({ success: true }))
 
-    query += updates.join(", ") + " WHERE id = ?"
+    query += updates.join(", ") + " WHERE id_user = ?"
     bindings.push(userId)
 
     await env.DB.prepare(query).bind(...bindings).run()
@@ -77,7 +77,7 @@ export async function onRequestDelete(context) {
   }
 
   try {
-    await env.DB.prepare("DELETE FROM users WHERE id = ?").bind(userId).run()
+    await env.DB.prepare("DELETE FROM data_users WHERE id_user = ?").bind(userId).run()
     
     return new Response(JSON.stringify({ success: true, message: 'User dihapus' }), {
       headers: { 'Content-Type': 'application/json' }

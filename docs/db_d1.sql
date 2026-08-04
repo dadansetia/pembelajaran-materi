@@ -16,17 +16,17 @@ CREATE TABLE IF NOT EXISTS data_users (
 
 -- Data awal (Dummy)
 -- Username: admin
--- Password: password123 (Sudah di-hash menggunakan SHA-256)
--- Anda bisa mengubah password hash ini nantinya. Hash untuk 'password123' adalah:
--- ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f
-INSERT INTO data_users (username, password, role_user, nama_pengguna, email, nomor_telepon, foto_profil, role_user, status_user, created_at, updated_at) 
-VALUES ('admin', '240bd89963509d9edc38427c7b625a336a178e74b00822450c5151c07352179e', 'master', 'Admin', 'dadan@smkm2banjarsari.sch.id', '08123456789', '', 'admin', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+-- Password: password (Sudah di-hash menggunakan Bcrypt)
+-- Anda bisa mengubah password hash ini nantinya. Hash untuk 'password' adalah:
+-- $2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi
+INSERT INTO data_users (username, password, nama_pengguna, email, nomor_telepon, foto_profil, role_user, status_user, created_at, updated_at) 
+VALUES ('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin', 'dadan@smkm2banjarsari.sch.id', '08123456789', '', 'master', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
 ON CONFLICT(username) DO UPDATE SET 
-  password = '240bd89963509d9edc38427c7b625a336a178e74b00822450c5151c07352179e',
+  password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
   nama_pengguna = 'dadan',
-  email = [EMAIL_ADDRESS]',
+  email = 'dadan@smkm2banjarsari.sch.id',
   nomor_telepon = '08123456789',
   foto_profil = '',
-  role_user = 'admin',
+  role_user = 'master',
   status_user = 1,
   updated_at = CURRENT_TIMESTAMP;
