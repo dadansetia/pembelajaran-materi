@@ -78,14 +78,26 @@ const router = useRouter()
 // Struktur Kelas & Lab
 const classStructure = {
   'X': [
-    { path: '/algoritma',    icon: '⚡', label: 'Algoritma' },
-    { path: '/datastruktur', icon: '📦', label: 'Struktur Data' }
+    { path: '/kelas-x/informatika-masa-depan', icon: '🚀', label: 'Informatika Masa Depan' },
+    { path: '/kelas-x/sistem-komputer', icon: '💻', label: 'Sistem Komputer' },
+    { path: '/kelas-x/berpikir-komputasional', icon: '⚙️', label: 'Berpikir Komputasional' },
+    { path: '/kelas-x/jaringan-internet', icon: '📡', label: 'Jaringan dan Internet' },
+    { path: '/kelas-x/dampak-sosial', icon: '🌍', label: 'Dampak Sosial' }
   ],
   'XI': [
-    { path: '/jaringan',     icon: '🌐', label: 'Jaringan' },
-    { path: '/biner',        icon: '💡', label: 'Sistem Biner' }
+    { path: '/kelas-xi/tentang-informatika', icon: '📖', label: 'Tentang Informatika' },
+    { path: '/kelas-xi/strategi-algoritmik', icon: '🧠', label: 'Strategi Algoritmik' },
+    { path: '/kelas-xi/berpikir-kritis', icon: '🤔', label: 'Berpikir Kritis' },
+    { path: '/kelas-xi/jaringan-komputer', icon: '🌐', label: 'Jaringan Komputer' },
+    { path: '/kelas-xi/pengembangan-aplikasi', icon: '📱', label: 'Pengembangan Aplikasi' }
   ],
-  'XII': []
+  'XII': [
+    { path: '/kelas-xii/informatika-masa-depan', icon: '🚀', label: 'Informatika Masa Depan' },
+    { path: '/kelas-xii/sistem-komputer', icon: '💻', label: 'Sistem Komputer' },
+    { path: '/kelas-xii/berpikir-komputasional', icon: '⚙️', label: 'Berpikir Komputasional' },
+    { path: '/kelas-xii/jaringan-internet', icon: '📡', label: 'Jaringan dan Internet' },
+    { path: '/kelas-xii/dampak-sosial', icon: '🌍', label: 'Dampak Sosial' }
+  ]
 }
 
 // State untuk menyimpan manual pilihan dropdown
@@ -96,8 +108,9 @@ const activeClass = computed(() => {
   if (manualClass.value) return manualClass.value
   
   // Deteksi dari route saat ini
-  if (['/algoritma', '/datastruktur'].includes(route.path)) return 'X'
-  if (['/jaringan', '/biner'].includes(route.path)) return 'XI'
+  if (route.path.startsWith('/kelas-x/')) return 'X'
+  if (route.path.startsWith('/kelas-xi/')) return 'XI'
+  if (route.path.startsWith('/kelas-xii/')) return 'XII'
   
   return null
 })

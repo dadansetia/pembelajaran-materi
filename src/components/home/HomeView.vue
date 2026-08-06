@@ -54,23 +54,45 @@
         <div v-if="activeClass === 'X'" class="sub-materi-content" key="kelas-x">
           <div class="content-header">
             <h2>Fase E</h2>
-            <p>Dasar Algoritma dan Struktur Data</p>
+            <p>Materi Inti Kelas X Informatika</p>
           </div>
           <div class="lab-grid">
-            <RouterLink to="/algoritma" class="lab-card" @click="playClick">
-              <div class="lab-icon">⚡</div>
+            <RouterLink to="/kelas-x/informatika-masa-depan" class="lab-card" @click="playClick">
+              <div class="lab-icon">🚀</div>
               <div class="lab-info">
-                <h3>Algoritma Pengurutan</h3>
-                <p>Simulasi interaktif Bubble Sort & Selection Sort</p>
+                <h3>Informatika Masa Depan</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
-            
-            <RouterLink to="/datastruktur" class="lab-card" @click="playClick">
-              <div class="lab-icon">📦</div>
+
+            <RouterLink to="/kelas-x/sistem-komputer" class="lab-card" @click="playClick">
+              <div class="lab-icon">💻</div>
               <div class="lab-info">
-                <h3>Struktur Data</h3>
-                <p>Eksplorasi Array dan Stack secara visual</p>
+                <h3>Sistem Komputer</h3>
+              </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
+
+            <RouterLink to="/kelas-x/berpikir-komputasional" class="lab-card" @click="playClick">
+              <div class="lab-icon">⚙️</div>
+              <div class="lab-info">
+                <h3>Berpikir Komputasional</h3>
+              </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
+
+            <RouterLink to="/kelas-x/jaringan-internet" class="lab-card" @click="playClick">
+              <div class="lab-icon">📡</div>
+              <div class="lab-info">
+                <h3>Jaringan dan Internet</h3>
+              </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
+
+            <RouterLink to="/kelas-x/dampak-sosial" class="lab-card" @click="playClick">
+              <div class="lab-icon">🌍</div>
+              <div class="lab-info">
+                <h3>Dampak Sosial</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
@@ -81,23 +103,45 @@
         <div v-else-if="activeClass === 'XI'" class="sub-materi-content" key="kelas-xi">
           <div class="content-header">
             <h2>Fase F</h2>
-            <p>Jaringan Komputer dan Logika Biner</p>
+            <p>Materi Inti Kelas XI Informatika</p>
           </div>
           <div class="lab-grid">
-            <RouterLink to="/jaringan" class="lab-card" @click="playClick">
-              <div class="lab-icon">🌐</div>
+            <RouterLink to="/kelas-xi/tentang-informatika" class="lab-card" @click="playClick">
+              <div class="lab-icon">📖</div>
               <div class="lab-info">
-                <h3>Jaringan Komputer</h3>
-                <p>Simulasi Topologi Star & Bus (Pengiriman Paket)</p>
+                <h3>Tentang Informatika</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
             
-            <RouterLink to="/biner" class="lab-card" @click="playClick">
-              <div class="lab-icon">💡</div>
+            <RouterLink to="/kelas-xi/strategi-algoritmik" class="lab-card" @click="playClick">
+              <div class="lab-icon">🧠</div>
               <div class="lab-info">
-                <h3>Sistem Biner</h3>
-                <p>Konversi bilangan & Simulasi Gerbang Logika dasar</p>
+                <h3>Strategi Algoritmik</h3>
+              </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
+
+            <RouterLink to="/kelas-xi/berpikir-kritis" class="lab-card" @click="playClick">
+              <div class="lab-icon">🤔</div>
+              <div class="lab-info">
+                <h3>Berpikir Kritis</h3>
+              </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
+
+            <RouterLink to="/kelas-xi/jaringan-komputer" class="lab-card" @click="playClick">
+              <div class="lab-icon">🌐</div>
+              <div class="lab-info">
+                <h3>Jaringan Komputer</h3>
+              </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
+
+            <RouterLink to="/kelas-xi/pengembangan-aplikasi" class="lab-card" @click="playClick">
+              <div class="lab-icon">📱</div>
+              <div class="lab-info">
+                <h3>Pengembangan Aplikasi Mobile</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
@@ -108,16 +152,48 @@
         <div v-else-if="activeClass === 'XII'" class="sub-materi-content" key="kelas-xii">
           <div class="content-header">
             <h2>Fase F Lanjut</h2>
-            <p>Materi Tingkat Lanjut</p>
+            <p>Materi Inti Kelas XII Informatika</p>
           </div>
           <div class="lab-grid">
-            <div class="lab-card disabled">
-              <div class="lab-icon" style="opacity: 0.5;">🚧</div>
+            <RouterLink to="/kelas-xii/informatika-masa-depan" class="lab-card" @click="playClick">
+              <div class="lab-icon">🚀</div>
               <div class="lab-info">
-                <h3>Materi Sedang Disusun</h3>
-                <p>Proyek Analisis Data & Artificial Intelligence (Segera Datang)</p>
+                <h3>Informatika Masa Depan</h3>
               </div>
-            </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
+
+            <RouterLink to="/kelas-xii/sistem-komputer" class="lab-card" @click="playClick">
+              <div class="lab-icon">💻</div>
+              <div class="lab-info">
+                <h3>Sistem Komputer</h3>
+              </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
+
+            <RouterLink to="/kelas-xii/berpikir-komputasional" class="lab-card" @click="playClick">
+              <div class="lab-icon">⚙️</div>
+              <div class="lab-info">
+                <h3>Berpikir Komputasional</h3>
+              </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
+
+            <RouterLink to="/kelas-xii/jaringan-internet" class="lab-card" @click="playClick">
+              <div class="lab-icon">📡</div>
+              <div class="lab-info">
+                <h3>Jaringan dan Internet</h3>
+              </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
+
+            <RouterLink to="/kelas-xii/dampak-sosial" class="lab-card" @click="playClick">
+              <div class="lab-icon">🌍</div>
+              <div class="lab-info">
+                <h3>Dampak Sosial</h3>
+              </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
           </div>
         </div>
 

@@ -14,4 +14,4 @@ JWT_SECRET = "super-secret-key-untuk-lab-maya-2026"
 binding = "DBMateri"
 database_name = "materi"
 database_id = "603a510b-ad31-4ecd-9ace-85413529dce1" # Ganti dengan ID database D1 Anda dari dashboard
-preview_database_id = "DB_Materi" # Untuk testing lokal (wrangler)
+preview_database_id = "603a510b-ad31-4ecd-9ace-85413529dce1" # Untuk testing lokal (wrangler)
