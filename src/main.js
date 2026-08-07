@@ -10,54 +10,49 @@ const routes = [
     meta: { hideSidebar: true } 
   },
   {
-    path: '/kelas-x/informatika-masa-depan',
-    component: () => import('./components/labs/kelas-x/InformatikaMasaDepan.vue'),
-    meta: { title: 'Informatika Masa Depan', icon: '🚀', fase: 'E' }
+    path: '/kelas-x/data-informasi',
+    component: () => import('./components/labs/kelas-x/DataDanInformasi.vue'),
+    meta: { title: 'Data dan Informasi', icon: '📊', fase: 'E' }
   },
   {
-    path: '/kelas-x/sistem-komputer',
-    component: () => import('./components/labs/kelas-x/SistemKomputer.vue'),
-    meta: { title: 'Sistem Komputer', icon: '💻', fase: 'E' }
+    path: '/kelas-x/algoritma-struktur-data',
+    component: () => import('./components/labs/kelas-x/AlgoritmaStrukturData.vue'),
+    meta: { title: 'Algoritma dan Struktur Data', icon: '⚡', fase: 'E' }
   },
   {
-    path: '/kelas-x/berpikir-komputasional',
-    component: () => import('./components/labs/kelas-x/BerpikirKomputasional.vue'),
-    meta: { title: 'Berpikir Komputasional', icon: '⚙️', fase: 'E' }
+    path: '/kelas-x/teknologi-budaya-digital',
+    component: () => import('./components/labs/kelas-x/TeknologiBudayaDigital.vue'),
+    meta: { title: 'Teknologi dan Budaya Digital', icon: '🌐', fase: 'E' }
   },
   {
-    path: '/kelas-x/jaringan-internet',
-    component: () => import('./components/labs/kelas-x/JaringanInternet.vue'),
-    meta: { title: 'Jaringan dan Internet', icon: '📡', fase: 'E' }
+    path: '/kelas-x/keamanan-informasi',
+    component: () => import('./components/labs/kelas-x/KeamananInformasi.vue'),
+    meta: { title: 'Keamanan Informasi', icon: '🔒', fase: 'E' }
   },
   {
-    path: '/kelas-x/dampak-sosial',
-    component: () => import('./components/labs/kelas-x/DampakSosial.vue'),
-    meta: { title: 'Dampak Sosial', icon: '🌍', fase: 'E' }
+    path: '/kelas-xi/informasi-digital',
+    component: () => import('./components/labs/kelas-xi/InformasiDigital.vue'),
+    meta: { title: 'Informasi Digital', icon: '📖', fase: 'F' }
   },
   {
-    path: '/kelas-xi/tentang-informatika',
-    component: () => import('./components/labs/kelas-xi/TentangInformatika.vue'),
-    meta: { title: 'Tentang Informatika', icon: '📖', fase: 'F' }
+    path: '/kelas-xi/analisis-data',
+    component: () => import('./components/labs/kelas-xi/AnalisisData.vue'),
+    meta: { title: 'Analisis Data', icon: '📊', fase: 'F' }
   },
   {
     path: '/kelas-xi/strategi-algoritmik',
     component: () => import('./components/labs/kelas-xi/StrategiAlgoritmik.vue'),
-    meta: { title: 'Strategi Algoritmik', icon: '🧠', fase: 'F' }
+    meta: { title: 'Strategi Algoritmik & Desain Struktur Data', icon: '🧠', fase: 'F' }
   },
   {
-    path: '/kelas-xi/berpikir-kritis',
-    component: () => import('./components/labs/kelas-xi/BerpikirKritis.vue'),
-    meta: { title: 'Berpikir Kritis', icon: '🤔', fase: 'F' }
+    path: '/kelas-xi/berpikir-komputasional',
+    component: () => import('./components/labs/kelas-xi/BerpikirKomputasional.vue'),
+    meta: { title: 'Berpikir Komputasional & Implementasi Algoritma', icon: '⚙️', fase: 'F' }
   },
   {
     path: '/kelas-xi/jaringan-komputer',
     component: () => import('./components/labs/kelas-xi/JaringanKomputer.vue'),
-    meta: { title: 'Jaringan Komputer', icon: '🌐', fase: 'F' }
-  },
-  {
-    path: '/kelas-xi/pengembangan-aplikasi',
-    component: () => import('./components/labs/kelas-xi/PengembanganAplikasi.vue'),
-    meta: { title: 'Pengembangan Aplikasi Mobile (AI)', icon: '📱', fase: 'F' }
+    meta: { title: 'Merancang Jaringan Komputer', icon: '🌐', fase: 'F' }
   },
   // Rute Kelas XII
   {

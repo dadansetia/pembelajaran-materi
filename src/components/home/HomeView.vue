@@ -57,42 +57,34 @@
             <p>Materi Inti Kelas X Informatika</p>
           </div>
           <div class="lab-grid">
-            <RouterLink to="/kelas-x/informatika-masa-depan" class="lab-card" @click="playClick">
-              <div class="lab-icon">🚀</div>
+            <RouterLink to="/kelas-x/data-informasi" class="lab-card" @click="playClick">
+              <div class="lab-icon">📊</div>
               <div class="lab-info">
-                <h3>Informatika Masa Depan</h3>
+                <h3>Data dan Informasi</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
 
-            <RouterLink to="/kelas-x/sistem-komputer" class="lab-card" @click="playClick">
-              <div class="lab-icon">💻</div>
+            <RouterLink to="/kelas-x/algoritma-struktur-data" class="lab-card" @click="playClick">
+              <div class="lab-icon">⚡</div>
               <div class="lab-info">
-                <h3>Sistem Komputer</h3>
+                <h3>Algoritma dan Struktur Data</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
 
-            <RouterLink to="/kelas-x/berpikir-komputasional" class="lab-card" @click="playClick">
-              <div class="lab-icon">⚙️</div>
+            <RouterLink to="/kelas-x/teknologi-budaya-digital" class="lab-card" @click="playClick">
+              <div class="lab-icon">🌐</div>
               <div class="lab-info">
-                <h3>Berpikir Komputasional</h3>
+                <h3>Teknologi dan Budaya Digital</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
 
-            <RouterLink to="/kelas-x/jaringan-internet" class="lab-card" @click="playClick">
-              <div class="lab-icon">📡</div>
+            <RouterLink to="/kelas-x/keamanan-informasi" class="lab-card" @click="playClick">
+              <div class="lab-icon">🔒</div>
               <div class="lab-info">
-                <h3>Jaringan dan Internet</h3>
-              </div>
-              <div class="lab-arrow">→</div>
-            </RouterLink>
-
-            <RouterLink to="/kelas-x/dampak-sosial" class="lab-card" @click="playClick">
-              <div class="lab-icon">🌍</div>
-              <div class="lab-info">
-                <h3>Dampak Sosial</h3>
+                <h3>Keamanan Informasi</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
@@ -106,26 +98,34 @@
             <p>Materi Inti Kelas XI Informatika</p>
           </div>
           <div class="lab-grid">
-            <RouterLink to="/kelas-xi/tentang-informatika" class="lab-card" @click="playClick">
+            <RouterLink to="/kelas-xi/informasi-digital" class="lab-card" @click="playClick">
               <div class="lab-icon">📖</div>
               <div class="lab-info">
-                <h3>Tentang Informatika</h3>
+                <h3>Informasi Digital</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
             
-            <RouterLink to="/kelas-xi/strategi-algoritmik" class="lab-card" @click="playClick">
-              <div class="lab-icon">🧠</div>
+            <RouterLink to="/kelas-xi/analisis-data" class="lab-card" @click="playClick">
+              <div class="lab-icon">📊</div>
               <div class="lab-info">
-                <h3>Strategi Algoritmik</h3>
+                <h3>Analisis Data</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
 
-            <RouterLink to="/kelas-xi/berpikir-kritis" class="lab-card" @click="playClick">
-              <div class="lab-icon">🤔</div>
+            <RouterLink to="/kelas-xi/strategi-algoritmik" class="lab-card" @click="playClick">
+              <div class="lab-icon">🧠</div>
               <div class="lab-info">
-                <h3>Berpikir Kritis</h3>
+                <h3>Strategi Algoritmik & Desain Struktur Data</h3>
+              </div>
+              <div class="lab-arrow">→</div>
+            </RouterLink>
+
+            <RouterLink to="/kelas-xi/berpikir-komputasional" class="lab-card" @click="playClick">
+              <div class="lab-icon">⚙️</div>
+              <div class="lab-info">
+                <h3>Berpikir Komputasional & Implementasi Algoritma</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
@@ -133,15 +133,7 @@
             <RouterLink to="/kelas-xi/jaringan-komputer" class="lab-card" @click="playClick">
               <div class="lab-icon">🌐</div>
               <div class="lab-info">
-                <h3>Jaringan Komputer</h3>
-              </div>
-              <div class="lab-arrow">→</div>
-            </RouterLink>
-
-            <RouterLink to="/kelas-xi/pengembangan-aplikasi" class="lab-card" @click="playClick">
-              <div class="lab-icon">📱</div>
-              <div class="lab-info">
-                <h3>Pengembangan Aplikasi Mobile</h3>
+                <h3>Merancang Jaringan Komputer</h3>
               </div>
               <div class="lab-arrow">→</div>
             </RouterLink>
@@ -199,8 +191,12 @@
 
         <!-- Initial state when no class is selected -->
         <div v-else class="empty-selection" key="empty">
-          <div class="empty-icon">👆</div>
-          <p>Silakan klik salah satu menu kelas di atas untuk melihat sub materi.</p>
+          <div class="tech-animation-container">
+            <span class="tech-icon floating-1">💻</span>
+            <span class="tech-icon floating-2">🤖</span>
+            <span class="tech-icon floating-3">📡</span>
+          </div>
+          <h3 class="school-name">Lab Maya Informatika SMAN 1 Lakbok</h3>
         </div>
 
       </Transition>
@@ -492,10 +488,55 @@ function playClick() {
   padding: 60px 20px;
   color: var(--text-muted);
 }
-.empty-icon {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  animation: bounce 2s infinite;
+
+.tech-animation-container {
+  position: relative;
+  height: 120px;
+  width: 200px;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-icon {
+  font-size: 2.8rem;
+  position: absolute;
+  filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.4));
+}
+
+.floating-1 {
+  animation: techFloat 4s infinite ease-in-out;
+  left: 10px;
+  top: 10px;
+}
+
+.floating-2 {
+  animation: techFloat 4.5s infinite ease-in-out reverse;
+  font-size: 3.5rem;
+  z-index: 2;
+  top: 30px;
+}
+
+.floating-3 {
+  animation: techFloat 5s infinite ease-in-out 1s;
+  right: 10px;
+  top: 10px;
+}
+
+.school-name {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-emerald));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: scaleFadeIn 1s ease-out;
+}
+
+@keyframes techFloat {
+  0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+  50% { transform: translateY(-15px) scale(1.1) rotate(5deg); }
 }
 
 /* Transition Animations */

@@ -4,7 +4,7 @@
       <div class="brand-icon">🧠</div>
       <div class="brand-text">
         <h1>Lab Maya Informatika</h1>
-        <span>SMA · Fase E &amp; F · Kurikulum Merdeka</span>
+        <span>SMA · Fase E &amp; F </span>
       </div>
     </div>
 
@@ -78,18 +78,17 @@ const router = useRouter()
 // Struktur Kelas & Lab
 const classStructure = {
   'X': [
-    { path: '/kelas-x/informatika-masa-depan', icon: '🚀', label: 'Informatika Masa Depan' },
-    { path: '/kelas-x/sistem-komputer', icon: '💻', label: 'Sistem Komputer' },
-    { path: '/kelas-x/berpikir-komputasional', icon: '⚙️', label: 'Berpikir Komputasional' },
-    { path: '/kelas-x/jaringan-internet', icon: '📡', label: 'Jaringan dan Internet' },
-    { path: '/kelas-x/dampak-sosial', icon: '🌍', label: 'Dampak Sosial' }
+    { path: '/kelas-x/data-informasi', icon: '📊', label: 'Data dan Informasi' },
+    { path: '/kelas-x/algoritma-struktur-data', icon: '⚡', label: 'Algoritma & Struktur Data' },
+    { path: '/kelas-x/teknologi-budaya-digital', icon: '🌐', label: 'Teknologi & Budaya Digital' },
+    { path: '/kelas-x/keamanan-informasi', icon: '🔒', label: 'Keamanan Informasi' }
   ],
   'XI': [
-    { path: '/kelas-xi/tentang-informatika', icon: '📖', label: 'Tentang Informatika' },
-    { path: '/kelas-xi/strategi-algoritmik', icon: '🧠', label: 'Strategi Algoritmik' },
-    { path: '/kelas-xi/berpikir-kritis', icon: '🤔', label: 'Berpikir Kritis' },
-    { path: '/kelas-xi/jaringan-komputer', icon: '🌐', label: 'Jaringan Komputer' },
-    { path: '/kelas-xi/pengembangan-aplikasi', icon: '📱', label: 'Pengembangan Aplikasi' }
+    { path: '/kelas-xi/informasi-digital', icon: '📖', label: 'Informasi Digital' },
+    { path: '/kelas-xi/analisis-data', icon: '📊', label: 'Analisis Data' },
+    { path: '/kelas-xi/strategi-algoritmik', icon: '🧠', label: 'Strategi Algoritmik & Desain Struktur Data' },
+    { path: '/kelas-xi/berpikir-komputasional', icon: '⚙️', label: 'Berpikir Komputasional & Implementasi Algoritma' },
+    { path: '/kelas-xi/jaringan-komputer', icon: '🌐', label: 'Merancang Jaringan Komputer' }
   ],
   'XII': [
     { path: '/kelas-xii/informatika-masa-depan', icon: '🚀', label: 'Informatika Masa Depan' },

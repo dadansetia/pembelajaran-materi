@@ -1,23 +1,23 @@
 <template>
   <div class="lab-container">
     <div class="lab-header">
-      <h2>Merancang Jaringan Komputer dan Konfigurasi Keamanannya</h2>
-      <p>Merancang Jaringan Komputer, Instalasi Jaringan, dan Konfigurasi Keamanan Jaringan Komputer</p>
+      <h2>Teknologi dan Budaya Digital</h2>
+      <p>Sistem Komputer, Perangkat Lunak Perkantoran, dan Budaya Baru di Era Informatika</p>
     </div>
 
     <div class="lab-nav-tabs">
       <button :class="{ active: activeTab === 'teori' }" @click="setTab('teori')">📚 Materi Teori</button>
-      <button :class="{ active: activeTab === 'jaringan' }" @click="setTab('jaringan')">🌐 Praktik Topologi Jaringan</button>
+      <button :class="{ active: activeTab === 'biner' }" @click="setTab('biner')">💡 Lab Sistem Biner & Logika</button>
     </div>
 
     <div class="lab-workspace" :class="{ 'no-padding': activeTab !== 'teori' }">
       <div v-if="activeTab === 'teori'" class="placeholder-content">
         <h3>Materi Sedang Disusun</h3>
-        <p>Halaman ini disiapkan untuk menampung modul materi Jaringan Komputer dan Internet.</p>
+        <p>Halaman ini disiapkan untuk menampung modul materi Teknologi dan Budaya Digital.</p>
       </div>
 
-      <div v-else-if="activeTab === 'jaringan'" class="embedded-lab">
-        <JaringanLab />
+      <div v-else-if="activeTab === 'biner'" class="embedded-lab">
+        <BinerLab />
       </div>
     </div>
   </div>
@@ -26,7 +26,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import JaringanLab from './jaringan/JaringanLab.vue'
+import BinerLab from './biner/BinerLab.vue'
 
 const route = useRoute()
 const activeTab = ref('teori')

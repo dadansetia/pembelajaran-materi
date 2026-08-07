@@ -1,23 +1,28 @@
 <template>
   <div class="lab-container">
     <div class="lab-header">
-      <h2>Merancang Jaringan Komputer dan Konfigurasi Keamanannya</h2>
-      <p>Merancang Jaringan Komputer, Instalasi Jaringan, dan Konfigurasi Keamanan Jaringan Komputer</p>
+      <h2>Algoritma dan Struktur Data</h2>
+      <p>Mengenal Algoritma, Pemrograman, dan Pemilihan Struktur Data untuk Masalah di Kehidupan Nyata</p>
     </div>
 
     <div class="lab-nav-tabs">
       <button :class="{ active: activeTab === 'teori' }" @click="setTab('teori')">📚 Materi Teori</button>
-      <button :class="{ active: activeTab === 'jaringan' }" @click="setTab('jaringan')">🌐 Praktik Topologi Jaringan</button>
+      <button :class="{ active: activeTab === 'algoritma' }" @click="setTab('algoritma')">⚡ Lab Algoritma</button>
+      <button :class="{ active: activeTab === 'struktur' }" @click="setTab('struktur')">📦 Lab Struktur Data</button>
     </div>
 
     <div class="lab-workspace" :class="{ 'no-padding': activeTab !== 'teori' }">
       <div v-if="activeTab === 'teori'" class="placeholder-content">
         <h3>Materi Sedang Disusun</h3>
-        <p>Halaman ini disiapkan untuk menampung modul materi Jaringan Komputer dan Internet.</p>
+        <p>Halaman ini disiapkan untuk menampung modul materi Algoritma dan Struktur Data.</p>
       </div>
 
-      <div v-else-if="activeTab === 'jaringan'" class="embedded-lab">
-        <JaringanLab />
+      <div v-else-if="activeTab === 'algoritma'" class="embedded-lab">
+        <AlgoritmaLab />
+      </div>
+
+      <div v-else-if="activeTab === 'struktur'" class="embedded-lab">
+        <DataStrukturLab />
       </div>
     </div>
   </div>
@@ -26,7 +31,8 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import JaringanLab from './jaringan/JaringanLab.vue'
+import AlgoritmaLab from './algoritma/AlgoritmaLab.vue'
+import DataStrukturLab from './datastruktur/DataStrukturLab.vue'
 
 const route = useRoute()
 const activeTab = ref('teori')

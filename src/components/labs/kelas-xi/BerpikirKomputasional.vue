@@ -1,13 +1,13 @@
 <template>
   <div class="lab-container">
     <div class="lab-header">
-      <h2>Strategi Algoritmik, Desain Struktur Data, dan Analisis Solusi</h2>
-      <p>Memahami Alur Proses Pengembangan Program, Strategi Algoritmik, dan Desain Struktur Data</p>
+      <h2>Pengembangan Kemampuan Berpikir Komputasional dan Implementasi Algoritma</h2>
+      <p>Menerapkan Strategi Algoritmik dan Pemrograman, Pengembangan Aplikasi Mobile, serta Aplikasi Kecerdasan Buatan</p>
     </div>
     <div class="lab-workspace">
       <div class="placeholder-content">
         <h3>Materi Sedang Disusun</h3>
-        <p>Halaman ini disiapkan untuk menampung modul materi Strategi Algoritmik dan Pemrograman.</p>
+        <p>Halaman ini disiapkan untuk menampung modul materi Pengembangan Kemampuan Berpikir Komputasional dan Implementasi Algoritma.</p>
       </div>
     </div>
   </div>
